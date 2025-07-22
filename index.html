@@ -6,9 +6,10 @@
     <title>Bienvenido a Verde y Vital</title>
     
 </head>
+
 <body>
     <!-- Encabezado principal de la página-->
-     <header>
+    <header>
         <!-- Imagen de encabezado-->
     <div id="portada">
         <img src="Imagenes/portada.jpg" alt="Imagen de portada de Verde y Vital">
@@ -17,7 +18,7 @@
         <h1 id="Titulo_Principal"> Verde y Vital.</h1>
      </div>
      <!-- Menú de navegación principal donde cada enlace representa una sección de la página-->
-      <nav>
+    <nav>
         <ul>
       <li> <a href="index.html"> Inicio </a></li>
       <li> <a href="index.html"> Nosotros </a></li>
@@ -51,9 +52,9 @@
     <!-- SECCION DE CALCULADORA DE IMC-->
      <section id="Calculadora_imc">
         <h2> Cálcula tu índice de Masa corporal</h2>
-        <h3> ¿Qué es el IMC? </h3>
-        <p> El indice de Masa Corporal es una medida que relaciona el peso de una persona con su altura</p>
-        <p> Sirve como una herramienta para ecaluar si una persona tiene un peso saludable en relación a su altura.</p>
+          <h3> ¿Qué es el IMC? </h3>
+            <p> El indice de Masa Corporal es una medida que relaciona el peso de una persona con su altura</p>
+            <p> Sirve como una herramienta para ecaluar si una persona tiene un peso saludable en relación a su altura.</p>
        <!-- FORMULARIO DE ENTRADA --> 
         <form id="form_imc">
             <label for="Peso"> Ingresa tu peso (Kg): </label>
@@ -61,6 +62,7 @@
 
             <label for="Altura"> Ingresa tu altura (Cm): </label>
             <input type="number" id="altura" name="altura" required>
+            <br></br>
             <button type="submit"> Calcular IMC </button>
         </form>
         <!-- RESULTADO DEL IMC-->
@@ -80,7 +82,7 @@
          <form id="form_ingredientes">
             <label for="ingredientes"> Escribe un ingrediente que te guste:</label>
             <input type="text" id="ingredientes" name="ingredientes" placeholder="Ej: Fish">
-
+            <br></br>
             <button type="submit"> Buscar Recetas</button>
          </form>
          <div id="resultado_recetas">
@@ -94,11 +96,12 @@
          <form id="form_nutricion">
             <label for="consulta_nutricional"> Escribe un plato o ingredientes </label>
             <input type="text" id="consulta_nutricional" name="consulta_nutricional" placeholder="Ej: Fish soup">
+            <br></br>
             <button type="submit"> Analizar </button>
          </form>
          <!--Resultado del análisis-->
          <div id="resultado-nutricional">
-            <!--Jorga aqui va el resultado del análisis nutricional-->
+            <!--Jorge aqui va el resultado del análisis nutricional-->
          </div>
       </section>
       <!-- FOOTER DEL SITIO-->
@@ -131,6 +134,8 @@
     <p>&copy; 2025 Verde y Vital. Todos los derechos reservados.</p>
   </div>
 </footer>
+<script src="api1.js"></script>
+<script src="api2.js"></script>
 <script src="api3.js"></script>
 </body>
 </html>
