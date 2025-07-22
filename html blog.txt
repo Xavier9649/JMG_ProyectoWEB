@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Nuestro Blog</title>
+</head>
+<body>
+      <!-- Encabezado principal de la página-->
+    <header>
+        <!-- Imagen de encabezado-->
+    <div id="portada">
+        <img src="Imagenes/portada_blog.jpg" alt="Imagen de portada de Verde y Vital">
+    </div>
+     <div id="logo">
+        <h1 id="Titulo_Principal"> Verde y Vital.</h1>
+     </div>
+     <!-- Menú de navegación principal donde cada enlace representa una sección de la página-->
+    <nav>
+        <ul>
+      <li> <a href="index.html"> Inicio </a></li>
+      <li> <a href="nosotros.html"> Nosotros </a></li>
+      <li> <a href="blog.html"> Blog </a></li>
+      <li> <a href="contacto.html"> Contacto </a></li>
+      </ul>
+    </nav>
+    </header>
+    <article class="entrada_blog">
+        <h2> Encebollado: orgullo ecuatoriano entre las mejores sopas del mundo. </h2>
+        <img src="Imagenes/encebollado_blog.jpg" alt="Encebollado Ecuatoriano" class="imagen-blog">
+        <p class="autor-articulo">Publicado el 29 de mayo de 2025 por Verde y Vital.</p>
+        <p>El encebollado, plato emblemático de la gastronomía ecuatoriana, ha sido reconocido nuevamente por el portal internacional <strong>TasteAtlas</strong>. En su ranking de las <em>50 mejores sopas de mariscos del mundo</em>, publicado en mayo de 2025, el encebollado ocupa el <strong>noveno lugar</strong>, destacándose por su sabor intenso, ingredientes frescos y valor cultural.</p>
+
+         <p>Preparado con albacora, yuca, cebolla encurtida, tomate, cilantro y especias como comino, el encebollado es considerado por muchos como el mejor remedio para el chuchaqui (resaca) y una tradición dominical en Ecuador. En 2024 fue declarado <strong>Patrimonio Cultural Inmaterial</strong> del país, reforzando su importancia histórica y culinaria.</p>
+
+        <p>Este reconocimiento internacional no es nuevo: en 2023, TasteAtlas lo ubicó como la <strong>segunda mejor sopa de pescado del mundo</strong>, y en 2024 fue incluido entre los mejores platos de agua salada. Su presencia constante en los rankings demuestra que el encebollado no solo conquista paladares locales, sino también internacionales.</p>
+
+        <p>¿Ya lo has probado? Si no, ¡es momento de preparar una versión casera y descubrir por qué el mundo lo ama!</p>
+
+        <p class="fuente-articulo">Fuente: <a href="https://www.primicias.ec/entretenimiento/gastronomia/encebollado-mejores-sopas-mariscos-mundo-tasteatlas-97298/" target="_blank">Primicias - TasteAtlas 2025</a></p>
+    </article>
+    <!-- FOOTER DEL SITIO-->
+       <footer>
+       <div class="footer_logo">
+        <h2> Verde y Vital</h2>
+        <p> Tu espacio de cocina consciente </p>
+       </div>
+       <!-- enlaces utiles -->
+          <div class="footer-enlaces">
+    <h3>Enlaces útiles</h3>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="blog.html">Blog</a></li>      
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+  <!-- REDES SOCIALES-->
+    <div class="footer-social">
+    <h3>Síguenos</h3>
+    <ul>
+      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+      <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+      <li><a href="https://twitter.com" target="_blank">X (Antes Twitter)</a></li>
+      <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+    </ul>
+    </div>
+<!-- Derechos-->
+    <div class="footer-copy">
+    <p>&copy; 2025 Verde y Vital. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>

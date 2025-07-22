@@ -3,135 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Bienvenido a Verde y Vital</title>
     
 </head>
 
 <body>
-    <!-- Encabezado principal de la página-->
-    <header>
-        <!-- Imagen de encabezado-->
-    <div id="portada">
-        <img src="Imagenes/portada.jpg" alt="Imagen de portada de Verde y Vital">
-    </div>
-     <div id="logo">
-        <h1 id="Titulo_Principal"> Verde y Vital.</h1>
-     </div>
-     <!-- Menú de navegación principal donde cada enlace representa una sección de la página-->
-    <nav>
-        <ul>
-      <li> <a href="index.html"> Inicio </a></li>
-      <li> <a href="index.html"> Nosotros </a></li>
-      <li> <a href="index.html"> Blog </a></li>
-      <li> <a href="index.html"> Contacto </a></li>
-      </ul>
-    </nav>
-    </header>
-    <!--Sección de recetas más buscadas-->
-    <section id="Recetas_mas_buscadas">
-        <h2 id="Titulo_recatas_mas_buscadas"> Recetas más buscadas </h2>
-        <div class="Recetas_contenedor">
-            <figure>
-                <img src="Imagenes/Recetas mas buscadas/Banana Pancakes.jpg" alt="Pancakes de banana">
-                <figcaption> Banana Pancakes </figcaption>
-            </figure>
-            <figure>
-                <img src="Imagenes/Recetas mas buscadas/Dundee cake.jpg" alt="Dundee Cake">
-                <figcaption> Dundee Cake </figcaption>
-            </figure>
-            <figure>
-                <img src="Imagenes/Recetas mas buscadas/fish soup.jpg" alt="Fish Soup">
-                <figcaption> Fish Soup </figcaption>
-            </figure>
-            <figure>
-                <img src="Imagenes/Recetas mas buscadas/Lamb Pilaf.jpg" alt="Lamb Pilaf">
-                <figcaption> Lamb Pilaf </figcaption>
-            </figure>
-        </div>
-    </section>
-    <!-- SECCION DE CALCULADORA DE IMC-->
-     <section id="Calculadora_imc">
-        <h2> Cálcula tu índice de Masa corporal</h2>
-          <h3> ¿Qué es el IMC? </h3>
-            <p> El indice de Masa Corporal es una medida que relaciona el peso de una persona con su altura</p>
-            <p> Sirve como una herramienta para ecaluar si una persona tiene un peso saludable en relación a su altura.</p>
-       <!-- FORMULARIO DE ENTRADA --> 
-        <form id="form_imc">
-            <label for="Peso"> Ingresa tu peso (Kg): </label>
-            <input type="number" id="Peso" name="Peso" required>
+     <!--  Encabezado principal con navegación -->
+<header class="bg-green-700 text-white p-4 flex flex-col md:flex-row items-center justify-between">
+  <div class="text-center md:text-left mb-4 md:mb-0">
+    <h1 class="text-3xl font-bold">Verde y Vital</h1>
+    <p class="text-sm">Tu espacio de cocina consciente</p>
+  </div>
 
-            <label for="Altura"> Ingresa tu altura (Cm): </label>
-            <input type="number" id="altura" name="altura" required>
-            <br></br>
-            <button type="submit"> Calcular IMC </button>
-        </form>
-        <!-- RESULTADO DEL IMC-->
-         <div id="resultado_imc">
-            <!-- JORGE AQUI VA EL RESULTADO DEL IMC-->
-         </div>
-         <!-- MENSAJES DE SUGERENCIA ALIMENTICIA-->
-         <div id="Mensaje_imc">
-            <!-- AQUI VAN LOS MENSAJES SEGUN EL IMC-->
-         </div>
-    </section>
-    <!-- SECCION DE RECETAS SEGUN INGREDIENTES-->
-     <section id="Busqueda_recetas">
-        <h2> Descubramos nuevas recetas en base a tus gustos.</h2>
-        <h2> ¿Qué ingredientes te gustan?</h2>
-        <!-- Formulario de busqueda de ingredientes-->
-         <form id="form_ingredientes">
-            <label for="ingredientes"> Escribe un ingrediente que te guste:</label>
-            <input type="text" id="ingredientes" name="ingredientes" placeholder="Ej: Fish">
-            <br></br>
-            <button type="submit"> Buscar Recetas</button>
-         </form>
-         <div id="resultado_recetas">
-            <!-- Jorge aqui van los resultados de las recetas-->
-         </div>
-     </section>
-     <!-- Anlisis nutricional de platos-->
-      <section id="analisis_nutricional">
-        <h2> Analiza el valor nutricional de tu comida </h2>
-        <!-- Formulario de entrada-->
-         <form id="form_nutricion">
-            <label for="consulta_nutricional"> Escribe un plato o ingredientes </label>
-            <input type="text" id="consulta_nutricional" name="consulta_nutricional" placeholder="Ej: Fish soup">
-            <br></br>
-            <button type="submit"> Analizar </button>
-         </form>
-         <!--Resultado del análisis-->
-         <div id="resultado-nutricional">
-            <!--Jorge aqui va el resultado del análisis nutricional-->
-         </div>
-      </section>
-      <!-- FOOTER DEL SITIO-->
-       <div class="footer_logo">
-        <h2> Verde y Vital</h2>
-        <p> Tu espacio de cocina consciente </p>
-       </div>
-       <!-- enlaces utiles -->
-          <div class="footer-enlaces">
-    <h3>Enlaces útiles</h3>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="blog.html">Blog</a></li>      
-      <li><a href="contacto.html">Contacto</a></li>
+  <!-- Menú de navegación -->
+  <nav>
+    <ul class="flex gap-4 text-lg">
+      <li><a href="index.html" class="hover:text-green-300">Inicio</a></li>
+      <li><a href="nosotros.html" class="hover:text-green-300">Nosotros</a></li>
+      <li><a href="blog.html" class="hover:text-green-300">Blog</a></li>
+      <li><a href="contacto.html" class="hover:text-green-300">Contacto</a></li>
     </ul>
+  </nav>
+</header>
+
+<!--  Portada  -->
+<section class="relative w-full h-72 md:h-96 overflow-hidden">
+  <img src="Imagenes/portada.jpg" alt="Imagen de portada de Verde y Vital"
+       class="object-cover w-full h-full opacity-90">
+  <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <h2 class="text-white text-4xl md:text-5xl font-bold text-center">Comer bien empieza aquí</h2>
   </div>
-  <!-- REDES SOCIALES-->
-   <div class="footer-social">
-    <h3>Síguenos</h3>
-    <ul>
-      <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-      <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-      <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
-    </ul>
+</section>
+<!-- ZONA DE RECETAS MAS BUSCADAS-->
+<section class="py-8 px-4">
+  <h2 class="text-2xl font-bold text-center mb-6">Recetas más buscadas</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <figure class="text-center">
+      <img src="Imagenes/Recetas mas buscadas/Banana Pancakes.jpg" alt="Pancakes de banana" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Banana Pancakes</figcaption>
+    </figure>
+    <figure class="text-center">
+      <img src="Imagenes/Recetas mas buscadas/Dundee cake.jpg" alt="Dundee Cake" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Dundee Cake</figcaption>
+    </figure>
+    <figure class="text-center">
+      <img src="Imagenes/Recetas mas buscadas/fish soup.jpg" alt="Fish Soup" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Fish Soup</figcaption>
+    </figure>
+    <figure class="text-center">
+      <img src="Imagenes/Recetas mas buscadas/Lamb Pilaf.jpg" alt="Lamb Pilaf" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Lamb Pilaf</figcaption>
+    </figure>
   </div>
-<!-- Derechos-->
-<div class="footer-copy">
-    <p>&copy; 2025 Verde y Vital. Todos los derechos reservados.</p>
+</section>
+<!-- SECCION DE CALCULO IMC-->
+<section class="bg-gray-100 py-8 px-4">
+  <h2 class="text-2xl font-bold text-center mb-4">Calcula tu Índice de Masa Corporal</h2>
+  <h3 class="text-lg font-semibold mb-2">¿Qué es el IMC?</h3>
+  <p class="mb-1">El Índice de Masa Corporal es una medida que relaciona el peso de una persona con su altura.</p>
+  <p class="mb-4">Sirve como herramienta para evaluar si tienes un peso saludable en relación a tu estatura.</p>
+<!-- formulario imc-->
+  <form id="form_imc" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
+    <label for="Peso" class="block font-medium">Ingresa tu peso (Kg):</label>
+    <input type="number" id="Peso" name="Peso" required class="w-full border border-gray-300 p-2 rounded-md">
+
+    <label for="altura" class="block font-medium">Ingresa tu altura (Cm):</label>
+    <input type="number" id="altura" name="altura" required class="w-full border border-gray-300 p-2 rounded-md">
+
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calcular IMC</button>
+  </form>
+
+  <div id="resultado_imc" class="mt-4 text-center text-green-700 font-semibold"></div>
+  <div id="Mensaje_imc" class="mt-2 text-center text-sm"></div>
+</section>
+<!-- seccion de recetas en base a ingredientes-->
+<section class="py-8 px-4">
+  <h2 class="text-2xl font-bold text-center mb-2">Descubramos nuevas recetas</h2>
+  <h3 class="text-lg text-center mb-4">¿Qué ingredientes te gustan?</h3>
+<!-- FORMULARIO DE INGREDIENTES-->
+  <form id="form_ingredientes" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
+    <label for="ingredientes" class="block font-medium">Escribe un ingrediente que te guste:</label>
+    <input type="text" id="ingredientes" name="ingredientes" placeholder="Ej: Fish" class="w-full border border-gray-300 p-2 rounded-md">
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buscar Recetas</button>
+  </form>
+<!-- Resultado recetas-->
+  <div id="resultado_recetas" class="mt-6 text-center"></div>
+</section>
+<!-- SECCION DE INFORMACION NUTRICIONAL-->
+<section class="bg-gray-100 py-8 px-4">
+  <h2 class="text-2xl font-bold text-center mb-4">Analiza el valor nutricional de tu comida</h2>
+<!-- FORMULARIO DE INFORMACION NUTRICIONAL-->
+  <form id="form_nutricion" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
+    <label for="consulta_nutricional" class="block font-medium">Escribe un plato o ingredientes:</label>
+    <input type="text" id="consulta_nutricional" name="consulta_nutricional" placeholder="Ej: Fish soup" class="w-full border border-gray-300 p-2 rounded-md">
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Analizar</button>
+  </form>
+
+  <div id="resultado-nutricional" class="mt-6 space-y-4"></div>
+</section>
+<!-- footer del sitio-->
+<footer class="bg-green-800 text-white p-8 mt-12">
+  <div class="flex flex-col md:flex-row md:justify-between gap-8 mb-6">
+    <div>
+      <h2 class="text-xl font-bold">Verde y Vital</h2>
+      <p class="text-sm">Tu espacio de cocina consciente</p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-2">Enlaces útiles</h3>
+      <ul class="space-y-1">
+        <li><a href="index.html" class="hover:text-green-300">Inicio</a></li>
+        <li><a href="nosotros.html" class="hover:text-green-300">Nosotros</a></li>
+        <li><a href="blog.html" class="hover:text-green-300">Blog</a></li>
+        <li><a href="contacto.html" class="hover:text-green-300">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-2">Síguenos</h3>
+      <ul class="space-y-1">
+        <li><a href="https://facebook.com" target="_blank" class="hover:text-green-300">Facebook</a></li>
+        <li><a href="https://instagram.com" target="_blank" class="hover:text-green-300">Instagram</a></li>
+        <li><a href="https://twitter.com" target="_blank" class="hover:text-green-300">X (Antes Twitter)</a></li>
+        <li><a href="https://youtube.com" target="_blank" class="hover:text-green-300">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center text-sm">
+    &copy; 2025 Verde y Vital. Todos los derechos reservados.
   </div>
 </footer>
 <script src="api1.js"></script>
