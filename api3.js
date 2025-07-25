@@ -1,5 +1,5 @@
 //Aqui ponemos a escuchar el evento submit del fomulario
-document.getElementById('form_nutricion').addEventListener('submit', async function (e) {
+    document.getElementById('form_nutricion').addEventListener('submit', async function (e) {
     e.preventDefault(); // evita que el formulario recargue la pagina al enviarse
     // guardamos en input el valor del ususario, eliminamos espacios al inicio
     // resultadoDiv es el contenedor para poner el resultado
