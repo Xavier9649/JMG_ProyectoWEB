@@ -1,57 +1,60 @@
-// Escucha el evento 'submit' del formulario IMC al hacer clic en "Calcular IMC"
-document.getElementById('form_imc').addEventListener('submit', async function (e) {
+// Añadimos el evento 'submit' del formulario IMC al hacer clic en "Calcular IMC"
+document.getElementById('form_imc').addEventListener('submit', async (e) => { // La variable e representa el evento del formulario
+  //Con addEventListener async, podemos usar 'await' dentro de la función, esto permite esperar respuestas de la API sin bloquear el hilo principal
   e.preventDefault(); // Evita que el formulario recargue la página
 
-  // Captura y limpia los valores ingresados por el usuario
+  //Capturamos los valores de peso y altura
   const peso = document.getElementById('Peso').value.trim();
   const altura = document.getElementById('altura').value.trim();
+  // Eliminamos los posibles espacios de lo escrito con trim()
 
-  // Referencias a los contenedores donde mostraremos los resultados
-  const resultado = document.getElementById('resultado_imc');
-  const mensaje = document.getElementById('Mensaje_imc');
+  //Capturamos los contenedores en donde se mostrán las respuestas
+  const resultado = document.getElementById('resultado_imc'); // Datos del IMC
+  const mensaje = document.getElementById('Mensaje_imc'); // Mensaje de recomendación
 
-  // Validación: si no hay peso o altura, se muestra un aviso
+ //Usamos un condicional para imprimir mensajes en el DOM segun sea la situación
   if (!peso || !altura) {
-    resultado.innerHTML = '<p>Por favor, ingresa peso y altura.</p>';
-    return; // Sale de la función
+    resultado.innerHTML = '<p>Ingrese su peso y altura</p>'
+    mensaje.innerHTML = '';
+    return; // Salimos de la función
+  } else {
+    resultado.innerHTML = '<p>Calculando IMC...</p>'
+    mensaje.innerHTML = '';
   }
 
-  // Mensaje temporal mientras se procesa la solicitud
-  resultado.innerHTML = '<p>Calculando IMC...</p>';
-  mensaje.innerHTML = ''; // Limpiamos recomendaciones anteriores
-
   try {
-    // 📡 Petición GET a la API BMI de APIVerve usando peso, altura y unidad métrica
-    const response = await fetch(`https://api.apiverve.com/v1/bmicalculator?weight=${peso}&height=${altura}&unit=metric`, {
-      headers: {
-        'x-api-key': '5b3ba1f8-75c4-4249-b5a2-32418bbbc7ca' // Clave de autenticación para acceder a la API
-      }
+    //Peticion a la API con los datos recogidos de los espacios de altura y peso
+    const respuestaApi = await fetch (`https://api.apiverve.com/v1/bmicalculator?weight=${peso}&height=${altura}&unit=metric`, {
+            headers: {'x-api-key': '5b3ba1f8-75c4-4249-b5a2-32418bbbc7ca'
+
+            }
     });
 
-    // Verificamos si la respuesta es correcta (código 200). Si no, lanzamos error manual.
-    if (!response.ok) throw new Error('Error al obtener datos');
-
-    // Convertimos la respuesta en JSON
-    const data = await response.json();
-
-    // Extraemos el objeto 'data' que contiene los resultados del IMC
+    // Verificamos si la respuesta es correcta.
+    if (!respuestaApi.ok) throw new Error('Error al obtener datos');
+    //response.ok es un booleano que devuelve true si la respuesta HTTP fue exitosa
+    // Si no es exitosa, lanzamos un error para manejarlo en el catch
+    
+    //Conversion de la respuesta recibida de la Api a objeto JavaScript desde JSON
+    //Conversion de la respuestas Json a objeto JS
+    const data = await respuestaApi.json();
+    
+    // Extraemos las propiedades del objeto que contiene los resultados del IMC
     const info = data.data;
 
-    //Mostramos los resultados en el DOM:
-    // - IMC calculado con dos decimales
-    // - Estado de salud (riesgo)
-    // - Descripción general del resultado
+    // Mostramos los resultados en el DOM: IMC, Estado, y mas
+
     resultado.innerHTML = `
-      <h3>Tu IMC: ${info.bmi.toFixed(2)}</h3>
+      <h3><strong>Tu IMC:</strong> ${info.bmi.toFixed(2)}</h3>
       <p><strong>Estado:</strong> ${info.risk}</p>
       <p><strong>Resumen:</strong> ${info.summary}</p>
     `;
+    //Mostramos la recomendación personalizada basada en el rango de IMC
+    mensaje.innerHTML = `<p><strong>Información:</strong> ${info.recommendation}</p>`;
 
-    // 💡 Recomendación personalizada basada en el rango de IMC
-    mensaje.innerHTML = `<p><strong>Recomendación:</strong> ${info.recommendation}</p>`;
   } catch (error) {
-    // Muestra mensaje en caso de error y lo imprime en la consola
-    resultado.innerHTML = `<p>Ocurrió un error: ${error.message}</p>`;
+    // Mostramos un mensaje en caso de error y lo imprimimos en la consola
+    resultado.innerHTML = `<p>${error.message}</p>`;
     console.error(error);
   }
 });

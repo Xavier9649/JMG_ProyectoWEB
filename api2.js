@@ -1,72 +1,58 @@
-// Esperamos a que el DOM esté completamente cargado antes de ejecutar lógica
-window.addEventListener("DOMContentLoaded", () => {
-  // Capturamos el formulario y el contenedor de resultados
-  const formulario = document.getElementById("form_ingredientes");
-  const resultado = document.getElementById("resultado_recetas");
-
-  // Evento al enviar el formulario
-  formulario.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Evita recargar la página
-
-    const ingrediente = document.getElementById("ingredientes").value.trim(); // Obtiene el texto del input
-    if (!ingrediente) return; // Sale si el campo está vacío
-
-    //1. Buscar receta principal usando el ingrediente ingresado
-    const urlPrincipal = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingrediente}`;
+//Aqui ponemos a escuchar el evento submit del fomulario
+    document.getElementById('form_nutricion').addEventListener('submit', async function (e) {
+    e.preventDefault(); // evita que el formulario recargue la pagina al enviarse
+    // guardamos en input el valor del ususario, eliminamos espacios al inicio
+    // resultadoDiv es el contenedor para poner el resultado
+    const input = document.getElementById('consulta_nutricional').value.trim();
+    const resultadoDiv = document.getElementById('resultado-nutricional');
+    // validamos que el ususario escriba algo, si esta vacio muestra un mensaje
+    // y detiene la ejecución
+    if (!input) {
+        resultadoDiv.innerHTML = '<p>Por favor, escribe un plato o ingrediente.</p>';
+        return;
+    }
+    // mostramos un mensaje mientras se hace la consulta a la api
+    resultadoDiv.innerHTML = '<p>Analizando...</p>';
+    // LLAMAMOS A LA APÍ
+    // query=${encodeURIComponent(input) ESTO valida el texto por si hay espacios o tildes
+    // con los headers enviamos la clave a la api
     try {
-      const res = await fetch(urlPrincipal); // Petición a la API
-      const datos = await res.json();        // Convertimos la respuesta en JSON
-      const recetas = datos.meals;           // Extraemos el array de recetas
-
-      // Mostramos la primera receta relevante si hay resultados
-      resultado.innerHTML = recetas
-        ? `<h3>Receta principal:</h3>` + await mostrarDetalles(recetas[0].idMeal)
-        : "<p>No se encontraron recetas.</p>";
-
-      // 2. Buscar una receta adicional aleatoria como sugerencia
-      const resSugerencia = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-      const sugerencia = await resSugerencia.json(); // Convertimos respuesta en JSON
-      resultado.innerHTML += `<h3>⭐ Sugerencia adicional:</h3>` + await mostrarDetalles(sugerencia.meals[0].idMeal);
-    } catch (err) {
-      console.error("Error:", err); // Imprime error si falla la conexión
-      resultado.innerHTML = "<p>Error al conectar con la API.</p>";
+        const response = await fetch(`https://api.api-ninjas.com/v1/nutrition?query=${encodeURIComponent(input)}`, {
+            headers: {
+                'X-Api-Key': 'BGMgLPgQgBqiE9bOaiUhQQ==IcjT9zrorcC4a4xx' 
+            }
+        });
+        // mostrar mensaje en caso que la respuesta sea error
+        if (!response.ok) {
+            throw new Error('Error al obtener datos');
+        }
+        // convierte la respuesta de formato jason a  un objeto en JavaScript
+        const data = await response.json();
+        // verifica si el array de resultados esta vacio, y muestra un mensaje
+        if (data.length === 0) {
+            resultadoDiv.innerHTML = '<p>No se encontró información nutricional para esa entrada.</p>';
+            return;
+        }
+        // mostrar resultados en una cadena html con foreach
+        let html = '<h3 class="text-center"><strong>Resultados Nutricionales:</strong></h3>';
+        data.forEach(item => {
+            html += `
+                <div class="text-center">
+                    <strong>${item.name}</strong><br>
+                    Calorías: ${item.calories} kcal<br>
+                    Proteína: ${item.protein_g} g<br>
+                    Grasa: ${item.fat_total_g} g<br>
+                    Carbohidratos: ${item.carbohydrates_total_g} g<br>
+                    Azúcar: ${item.sugar_g} g<br>
+                    Fibra: ${item.fiber_g} g<br>
+                </div><hr>
+            `;
+        });
+        // inserta el html generado dentro del div de resultados
+        resultadoDiv.innerHTML = html;
+        // MANEJO DE ERRORES muestra un error por problemas de conexion u otros
+    } catch (error) {
+        resultadoDiv.innerHTML = `<p>Ocurrió un error: ${error.message}</p>`;
+        console.error(error);
     }
-  });
 });
-
-async function mostrarDetalles(id) {
-  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`; // Endpoint para obtener detalles
-  try {
-    const res = await fetch(url);        // Petición a la API
-    const datos = await res.json();      // Convertimos en JSON
-    const receta = datos.meals[0];       // Extraemos objeto de receta
-
-    // Construimos lista de ingredientes y medidas
-    let ingredientes = "";
-    for (let i = 1; i <= 20; i++) {
-      const ing = receta[`strIngredient${i}`];
-      const cant = receta[`strMeasure${i}`];
-      if (ing && ing.trim()) {
-        ingredientes += `<li>${ing} - ${cant}</li>`;
-      }
-    }
-
-    // Construimos el HTML con imagen, ingredientes e instrucciones
-    return `
-      <div class="tarjeta-receta">
-        <h4>${receta.strMeal}</h4>
-        <img src="${receta.strMealThumb}" alt="${receta.strMeal}" width="250">
-        <h5>Ingredientes:</h5>
-        <ul>${ingredientes}</ul>
-        <h5>Preparación:</h5>
-        <p>${receta.strInstructions}</p>
-      </div>
-    `;
-  } catch (err) {
-    console.error("Error al obtener detalles:", err); // En caso de error
-    return "<p>No se pudo cargar la receta.</p>";
-  }
-}
-
-
-

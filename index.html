@@ -7,8 +7,8 @@
     <title>Bienvenido a Verde y Vital</title>
     
 </head>
-
 <body>
+
      <!--  Encabezado principal con navegación -->
 <header class="bg-green-700 text-white p-4 flex flex-col md:flex-row items-center justify-between">
   <div class="text-center md:text-left mb-4 md:mb-0">
@@ -35,43 +35,48 @@
     <h2 class="text-white text-4xl md:text-5xl font-bold text-center">Comer bien empieza aquí</h2>
   </div>
 </section>
-<!-- ZONA DE RECETAS MAS BUSCADAS-->
+
+<!-- ZONA DE ALIMENTOS MAS BUSCADOS-->
 <section class="py-8 px-4">
-  <h2 class="text-2xl font-bold text-center mb-6">Recetas más buscadas</h2>
+  <h2 class="text-2xl font-bold text-center mb-6">Alimentos más buscados</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
     <figure class="text-center">
-      <img src="Imagenes/Recetas mas buscadas/Banana Pancakes.jpg" alt="Pancakes de banana" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
-      <figcaption class="mt-2 font-semibold">Banana Pancakes</figcaption>
+      <img src="Imagenes/Alimentos mas buscadas/Banana.jpg" alt="Banana" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Banana</figcaption>
     </figure>
     <figure class="text-center">
-      <img src="Imagenes/Recetas mas buscadas/Dundee cake.jpg" alt="Dundee Cake" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
-      <figcaption class="mt-2 font-semibold">Dundee Cake</figcaption>
+      <img src="Imagenes/Alimentos mas buscadas/Zanahoria.jpg" alt="Zanahoria" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Zanahoria</figcaption>
     </figure>
     <figure class="text-center">
-      <img src="Imagenes/Recetas mas buscadas/fish soup.jpg" alt="Fish Soup" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
-      <figcaption class="mt-2 font-semibold">Fish Soup</figcaption>
+      <img src="Imagenes/Alimentos mas buscadas/Pescado.jpg" alt="Pescado" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Pescado</figcaption>
     </figure>
     <figure class="text-center">
-      <img src="Imagenes/Recetas mas buscadas/Lamb Pilaf.jpg" alt="Lamb Pilaf" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
-      <figcaption class="mt-2 font-semibold">Lamb Pilaf</figcaption>
+      <img src="Imagenes/Alimentos mas buscadas/Manzana.jpg" alt="Manzana" class="rounded-lg shadow-md mx-auto w-full h-40 object-cover">
+      <figcaption class="mt-2 font-semibold">Manzana</figcaption>
     </figure>
   </div>
 </section>
+
 <!-- SECCION DE CALCULO IMC-->
 <section class="bg-gray-100 py-8 px-4">
   <h2 class="text-2xl font-bold text-center mb-4">Calcula tu Índice de Masa Corporal</h2>
-  <h3 class="text-lg font-semibold mb-2">¿Qué es el IMC?</h3>
-  <p class="mb-1">El Índice de Masa Corporal es una medida que relaciona el peso de una persona con su altura.</p>
-  <p class="mb-4">Sirve como herramienta para evaluar si tienes un peso saludable en relación a tu estatura.</p>
+    <h3 class="text-center text-lg"><strong>¿Qué es el IMC?</strong></h3>
+      <p class="text-center">El Índice de Masa Corporal es una medida que relaciona el peso de una persona con su altura.</p>
+      <p class="text-center mb-4">Sirve como herramienta para evaluar si tienes un peso saludable en relación a tu estatura.</p>
+
 <!-- formulario imc-->
   <form id="form_imc" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
-    <label for="Peso" class="block font-medium">Ingresa tu peso (Kg):</label>
+    <label for="Peso" class="block text-center text-lg font-bold">Ingresa tu peso (Kg):</label>
     <input type="number" id="Peso" name="Peso" required class="w-full border border-gray-300 p-2 rounded-md">
 
-    <label for="altura" class="block font-medium">Ingresa tu altura (Cm):</label>
+    <label for="altura" class="block text-center text-lg font-bold">Ingresa tu altura (Cm):</label>
     <input type="number" id="altura" name="altura" required class="w-full border border-gray-300 p-2 rounded-md">
 
-    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calcular IMC</button>
+    <div class="flex justify-center">
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Calcular IMC</button>
+    </div>
   </form>
 
   <div id="resultado_imc" class="mt-4 text-center text-green-700 font-semibold"></div>
@@ -80,12 +85,19 @@
 
 <!-- SECCION DE INFORMACION NUTRICIONAL-->
 <section class="bg-gray-100 py-8 px-4">
+    <h3 class="text-center text-lg"><strong>¿Te gustaria saber si lo que estas comiendo es saludable?</strong></h3>
+        <p class="text-center">El análisis nutricional puede ayudarte a entender mejor los alimentos que consumes y su impacto en tu salud.</p>
+        <p class="text-center mb-4">Conocer el valor nutricional de tus comidas es clave para mantener una dieta equilibrada.</p>
+
   <h2 class="text-2xl font-bold text-center mb-4">Analiza el valor nutricional de tu comida</h2>
+    
 <!-- FORMULARIO DE INFORMACION NUTRICIONAL-->
   <form id="form_nutricion" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
-    <label for="consulta_nutricional" class="block font-medium">Escribe un plato o ingredientes:</label>
-    <input type="text" id="consulta_nutricional" name="consulta_nutricional" placeholder="Ej: Fish soup" class="w-full border border-gray-300 p-2 rounded-md">
-    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Analizar</button>
+    <label for="consulta_nutricional" class="block text-center text-lg font-bold">Escribe un plato o ingredientes:</label>
+      <input type="text" id="consulta_nutricional" name="consulta_nutricional" placeholder="Ej: Fish soup" class="w-full border border-gray-300 p-2 rounded-md">
+    <div class="flex justify-center">
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Analizar</button>
+    </div>
   </form>
 
   <div id="resultado-nutricional" class="mt-6 space-y-4"></div>
@@ -99,18 +111,18 @@
     </div>
 
     <div>
-      <h3 class="font-semibold mb-2">Enlaces útiles</h3>
-      <ul class="space-y-1">
-        <li><a href="index.html" class="hover:text-green-300">Inicio</a></li>
-        <li><a href="nosotros.html" class="hover:text-green-300">Nosotros</a></li>
-        <li><a href="blog.html" class="hover:text-green-300">Blog</a></li>
-        <li><a href="contacto.html" class="hover:text-green-300">Contacto</a></li>
-      </ul>
+      <h3 class="text-xl font-bold mb-2 text-center">Enlaces útiles</h3>
+        <ul class="space-y-1 text-center">
+          <li><a href="index.html" class="hover:text-green-300">Inicio</a></li>
+          <li><a href="nosotros.html" class="hover:text-green-300">Nosotros</a></li>
+          <li><a href="blog.html" class="hover:text-green-300">Blog</a></li>
+          <li><a href="contacto.html" class="hover:text-green-300">Contacto</a></li>
+        </ul>
     </div>
 
     <div>
-      <h3 class="font-semibold mb-2">Síguenos</h3>
-      <ul class="space-y-1">
+      <h3 class="text-xl font-bold mb-2 text-center">Síguenos</h3>
+      <ul class="space-y-1 text-center">
         <li><a href="https://facebook.com" target="_blank" class="hover:text-green-300">Facebook</a></li>
         <li><a href="https://instagram.com" target="_blank" class="hover:text-green-300">Instagram</a></li>
         <li><a href="https://twitter.com" target="_blank" class="hover:text-green-300">X (Antes Twitter)</a></li>
@@ -123,8 +135,9 @@
     &copy; 2025 Verde y Vital. Todos los derechos reservados.
   </div>
 </footer>
-<script src="api1.js"></script>
 
-<script src="api3.js"></script>
+<script src="api1.js"></script>
+<script src="api2.js"></script>
+
 </body>
 </html>
