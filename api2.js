@@ -20,6 +20,7 @@
         const response = await fetch(`https://api.api-ninjas.com/v1/nutrition?query=${encodeURIComponent(input)}`, {
             headers: {
                 'X-Api-Key': 'BGMgLPgQgBqiE9bOaiUhQQ==IcjT9zrorcC4a4xx' 
+                
             }
         });
         // mostrar mensaje en caso que la respuesta sea error
