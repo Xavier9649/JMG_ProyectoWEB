@@ -75,22 +75,7 @@
             <!-- AQUI VAN LOS MENSAJES SEGUN EL IMC-->
          </div>
     </section>
-    <!-- SECCION DE RECETAS SEGUN INGREDIENTES-->
-     <section id="Busqueda_recetas">
-        <h2> Descubramos nuevas recetas en base a tus gustos.</h2>
-        <h2> ¿Qué ingredientes te gustan?</h2>
-        <!-- Formulario de busqueda de ingredientes-->
-         <form id="form_ingredientes">
-            <label for="ingredientes"> Escribe un ingrediente que te guste:</label>
-            <input type="text" id="ingredientes" name="ingredientes" placeholder="Ej: Fish">
-            <br></br>
-            <button type="submit"> Buscar Recetas</button>
-         </form>
-         <div id="resultado_recetas">
-            <!-- Jorge aqui van los resultados de las recetas-->
-         </div>
-     </section>
-     <!-- Anlisis nutricional de platos-->
+         <!-- Anlisis nutricional de platos-->
       <section id="analisis_nutricional">
         <h2> Analiza el valor nutricional de tu comida </h2>
         <!-- Formulario de entrada-->
@@ -138,6 +123,5 @@
 </footer>
 <script src="api1.js"></script>
 <script src="api2.js"></script>
-<script src="api3.js"></script>
 </body>
 </html>
