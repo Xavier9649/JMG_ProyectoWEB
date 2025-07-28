@@ -30,14 +30,7 @@ Consulta tu Índice de Masa Corporal y recibe un mensaje interpretativo según t
 
 ---
 
-### Recetas según ingredientes
-Ingresa un ingrediente y descubre recetas saludables relacionadas.
 
-**API utilizada:** [Edamam Recipe API]  
-**Método:** `fetch()` con parámetros dinámicos  
-**Ubicación:** Sección `#Busqueda_recetas`
-
----
 
 ###  Análisis nutricional
 Obtén el valor nutricional de cualquier plato escrito (calorías, proteínas, grasas, azúcares, sodio, etc.).
